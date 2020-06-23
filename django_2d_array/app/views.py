@@ -70,7 +70,6 @@ def grid_generator(columns, rows):
         columns_copy        -= 2
         rows_copy           -= 2
 
-
     #second half of the grid
     increment_1               = 0
     for j in range(rows_half, 1, -1):
