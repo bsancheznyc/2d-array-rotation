@@ -7,7 +7,7 @@ import { HttpClient }          from '@angular/common/http';
 })
 
 export class GridBackendService {
-    private baseUrl                          = 'http://69.16.201.27:8001'
+    private baseUrl                          = 'http://127.0.0.1:8000'
     constructor(private http: HttpClient) { }
  
     get_initial_arr(): Observable<Array<{}>>  {

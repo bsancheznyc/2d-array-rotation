@@ -1,6 +1,9 @@
 
 # 2d Array Rotation
-  Python3 generates & rotates the grid, angular shows the magic!.
+  Python generates & rotates counter clockwise the grid, angular shows the magic!.
+
+[![2d Array Rotation](https://2d-array-rotation.com/static/images/matrix_rotation.jpg)](https://2d-array-rotation.com/)
+
 
 #### Requirements
 - Python 3.7 & up
@@ -10,12 +13,25 @@
 ### Initial Setup
 ```
 git clone git@github.com:briansanchez/2d-array-rotation.git
-cd 2d-array-rotation
+$ cd 2d-array-rotation
 # activate pipenv
-pipenv shell
-cd django_2d_array
-install -r requirements.txt
-python manage.py migrate
+$ pipenv shell
+
+# run django
+$ cd django_2d_array
+$ install -r requirements.txt
+$ python manage.py migrate
+# run django
+$ python manage.py runserver
+
+$ cd ..
+
+#angular
+cd angular_2d_array
+npm install
+#run angular
+ng serve
+
 ```
 
 #### Grid Creation
@@ -31,11 +47,31 @@ My approach is to divide the grid in 8 sections.
 8. Bottom row
 
 #### Grid Rotation
-My idea is to divide using imaginary belts, divide and conquer, each belt should be treated in an exclusive way.
+Let's use imaginary iframes.
 
-1. Save the position of the coords for each belt in array.
-2. Make a copy of each belt and rotate the copy (figure it out the formula <sup>1</sup> to find the right number where the grid comes back to original position "for each belt") because rotations could be 1 million, so rotate.
-3. Rotations done? ok now display the grid using step 1 with coords rotated in step 2.
+1. Save the position of the coords for each iframe in an array.
+2. Make a copy of each iframe and rotate the copy.
+3. Using this formula: (n rotations / total_cells_in_frame) * total_cells_in_frame, we can find the number where the grid comes back to original position "for each iframe" because rotations could be 1 million, so optimization is also a must.
+4. After n Rotations, display the grid using step 1 with coords rotated in step 2.
 
-<sup>1</sup> (n rotations / total_cells_in_frame) * total_cells_in_frame
 
+## Python exercises in TDD style
+
+### How to run tests locally (Linux or Mac OS X)
+Locally running the unit testing requires [pytest](http://pytest.org)
+
+Then you can run the tests with:
+```
+$ pytest django_2d_array/app/tests.py
+```
+
+You can run a single test case like this:
+```
+$ pytest django_2d_array/app/tests.py -k 'test_6_x_6'
+```
+
+You can run multiple test cases with:
+```
+$ pytest django_2d_array/app/tests.py -k 'test_6_x_6 or test_10_x_2 or test_2_x_4'
+```
+ 

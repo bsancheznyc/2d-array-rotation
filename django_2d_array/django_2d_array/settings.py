@@ -16,7 +16,7 @@ SECRET_KEY = 'skm-w6%l*o0+s%+me2i+px647e==pqi6ait!bh0k@4o%ib%bx1'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['127.0.0.1']
+ALLOWED_HOSTS = ['127.0.0.1', '69.16.201.27']
 
 
 # Application definition
